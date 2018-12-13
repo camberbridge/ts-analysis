@@ -1,0 +1,7 @@
+- assdumper
+  - For converting a TS file to an ASS file.
+  - Modify a fopen() function to a fopen64() function.
+- recdvb
+  - For recording a TS file.
+- screen
+  - For running command in concurrency.
