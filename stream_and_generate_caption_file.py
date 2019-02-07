@@ -2,6 +2,7 @@
 
 import sys, subprocess, json
 import concurrent.futures, threading
+import time
 
 """usage
 - python record_and_generate_caption_file.py file_name, from_time, to_time, ch
@@ -81,9 +82,18 @@ def main_record(file_name, from_time, to_time, ch):
     def dump():
         threading.Thread(target=printer).start()
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+    def crop_image():
+        start_time = time.time()
+        i = 0
+        while i < to_time - from_time:
+            time.sleep(3)
+            i = round(time.time() - start_time)
+            subprocess.call("ffmpeg -ss " + str(i) + " -t 1 -r 1 -i hoge.m2ts -f image2 " + str(i) +".jpg", shell=True)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
         executor.submit(record)
         executor.submit(dump)
+        executor.submit(crop_image)
 
 
 if __name__ == "__main__":
