@@ -88,7 +88,10 @@ def main_record(file_name, from_time, to_time, ch):
         while i < to_time - from_time:
             time.sleep(3)
             i = round(time.time() - start_time)
-            subprocess.call("ffmpeg -ss " + str(i) + " -t 1 -r 1 -i hoge.m2ts -f image2 " + str(i) +".jpg", shell=True)
+            try:
+                subprocess.call("ffmpeg -ss " + str(i) + " -t 1 -r 1 -i hoge.m2ts -f image2 " + str(i) +".jpg", shell=True)
+            except:
+                pass
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
         executor.submit(record)
