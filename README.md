@@ -21,3 +21,8 @@ $ screen -ls
 $ screen -r 
   - Detouch a session.
 Ctrl-a Ctrl-d
+- Stream
+  - TS to text
+    - python stream_and_generate_caption_file.py file_name start_time end_time ch
+  - Image to text
+    - python watching.py
