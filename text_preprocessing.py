@@ -11,7 +11,7 @@ def text_preprocessing(file_name):
         for l in f: 
             counter += 1
             if counter > 7: 
-                l = l[50:].replace("\n", "").replace("≫", "").replace("「", "").replace("」", "").replace(".", "").replace("、", "").replace("。", "").replace("　", "").replace("？", "").replace("！", "").replace("♬", "").replace("〜", "").replace(" ", "").replace("＞", "").replace("＜", "").replace("…", "")
+                l = l[50:].replace("\n", "").replace("≫", "").replace("「", "").replace("」", "").replace(".", "").replace("、", "").replace("。", "").replace("　", "").replace("？", "").replace("！", "").replace("♬", "").replace("〜", "").replace(" ", "").replace("＞", "").replace("＜", "").replace("…", "").replace("『", "").replace("』", "").replace("［", "").replace("］", "").replace("〈", "").replace("〉", "").replace("《", "").replace("》", "")
 
                 try: 
                     l = l[:l.index("\\n")] + "\n" + l[l.index("\\n") + 2:]
