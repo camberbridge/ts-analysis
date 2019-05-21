@@ -6,6 +6,7 @@
 
 # Examples.
 - Run
+
 $ python mig.py json_file 
 
 - Kill a process
@@ -23,6 +24,6 @@ $ screen -r
 Ctrl-a Ctrl-d
 - Stream
   - TS to text
-    - python stream_and_generate_caption_file.py file_name start_time end_time ch
+    $ python stream_and_generate_caption_file.py file_name start_time end_time ch
   - Image to text
-    - python watching.py
+    $ python watching.py
